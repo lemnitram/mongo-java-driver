@@ -4,6 +4,7 @@ package org.bson;
 
 import static org.bson.BSON.*;
 
+import java.math.BigDecimal;
 import java.nio.*;
 import java.nio.charset.*;
 import java.util.*;
@@ -270,7 +271,7 @@ public class BSONEncoder {
 	        _put( NUMBER_LONG , name );
 	        _buf.writeLong( n.longValue() );
 	    }
-	    else if ( n instanceof Float || n instanceof Double ) {
+	    else if ( n instanceof Float || n instanceof Double || n instanceof BigDecimal) {
 	      _put( NUMBER , name );
 	      _buf.writeDouble( n.doubleValue() );
 	    }
